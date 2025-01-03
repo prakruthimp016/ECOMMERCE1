@@ -1,0 +1,46 @@
+<!-- home.html -->
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - E-commerce</title>
+</head>
+<body>
+    <!-- Display Categories -->
+    <h2>Categories</h2>
+    <div>
+        {% for category in categories %}
+        <div><a href="{% url 'category_detail' category.slug %}">
+            <div>
+                <img src="{{ category.category_image.url }}" alt="Image 1" height="200px" width="200px">
+                
+        
+            </div>{{ category.category_name }}</a></div>
+        {% endfor %}
+        </div>
+       
+    
+
+    <!-- Display Products -->
+    <h1>Products</h1>
+    <div>
+        {% for product in products %}
+            
+        <div>
+            <a href="{%  url 'product_details' product.slug %}" title="product"> <img src="{{product.image1.url}}" width="200px" height="200px" alt=""></a><br>
+            
+            <p>{{product.product.product_name}}</p>
+            {{product.colour.colour_name}}
+            <p>Colour:{{product.colour.colour_name}}</p>
+            <p>Original_price{{ product.original_price}}</p>
+            <p>Sale_price{{product.sale_price}}</p>
+            
+
+            
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
